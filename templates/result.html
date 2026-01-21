@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .content {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            word-wrap: break-word; /* Allow long words to be broken and wrap onto the next line */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p.no-results {
+            color: #900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crime Description</h1>
+    <p>{{ complaint }}</p>
+
+    {% if suggestions %}
+        {% for suggestion in suggestions %}
+            <div class="content">
+                <h2>Description</h2>
+                <p>{{ suggestion.Description }}</p>
+                
+                <h2>In Simple Words</h2>
+                <p>{{ suggestion.In_Simple_Words }}</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-md-4 col-xs-3">Offense</th>
+                            <th class="col-md-4 col-xs-3">Punishment</th>
+                            <th class="col-md-2 col-xs-3">Cognizance</th>
+                            <th class="col-md-1 col-xs-3">Bail</th>
+                            <th class="col-md-1 col-xs-3">Triable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr align="left">
+                            <td class="border">{{ suggestion.Offense }}</td>
+                            <td class="border">{{ suggestion.Punishment }}</td>
+                            <td class="border">{{ suggestion.Cognizable }}</td>
+                            <td class="border">{{ suggestion.Bailable }}</td>
+                            <td class="border">{{ suggestion.Court }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No relevant sections found.</p>
+    {% endif %}
+</body>
+</html>

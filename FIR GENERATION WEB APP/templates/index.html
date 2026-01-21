@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIR Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>FIR Generator</h1>
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.csrf_token }}
+        <h2>Complainant's Information:</h2>
+        <label for="complainant_name">Complainant's Name:</label>
+        {{ form.complainant_name(size=32) }}
+        <br>
+        <label for="complainant_address">Complainant's Address and Contact Details:</label>
+        {{ form.complainant_address(cols=50, rows=5) }}
+        <br>
+        <h2>Incident Details:</h2>
+        <label for="incident_date_time_location">Incident Date, Time, and Location:</label>
+        {{ form.incident_date_time_location(size=32) }}
+        <br>
+        <label for="incident_nature">Nature of the Incident or Crime:</label>
+        {{ form.incident_nature(cols=50, rows=5) }}
+        <br>
+        <label for="incident_description">Description of Events:</label>
+        {{ form.incident_description(cols=50, rows=5) }}
+        <br>
+        <h2>Details of the Accused:</h2>
+        <label for="accused_details">Details of the Accused:</label>
+        {{ form.accused_details(cols=50, rows=5) }}
+        <br>
+        <h2>Witness Information:</h2>
+        <label for="witness_information">Witness Information:</label>
+        {{ form.witness_information(cols=50, rows=5) }}
+        <br>
+        <h2>Property Details:</h2>
+        <label for="property_details">Property Details:</label>
+        {{ form.property_details(cols=50, rows=5) }}
+        <br>
+        <h2>Injuries or Damages:</h2>
+        <label for="injuries_or_damages">Injuries or Damages Information:</label>
+        {{ form.injuries_or_damages(cols=50, rows=5) }}
+        <br>
+        <h2>FIR Number and Date:</h2>
+        <label for="fir_number">FIR Number:</label>
+        {{ form.fir_number(size=32) }}
+        <br>
+        <label for="fir_date_time">Date and Time of FIR Registration:</label>
+        {{ form.fir_date_time(size=32) }}
+        <br>
+        <h2>Police Station Details:</h2>
+        <label for="police_station_details">Police Station Details:</label>
+        {{ form.police_station_details(size=32) }}
+        <br>
+        <h2>Complainant's Signature:</h2>
+        <label for="complainant_signature">Complainant's Signature:</label>
+        {{ form.complainant_signature(size=32) }}
+        <br>
+        <input type="submit" value="Generate FIR">
+    </form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        .result-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            margin-top: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .pdf-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>Result</title>
+</head>
+<body>
+    <div class="result-container">
+        {% if is_complaint %}
+            <h2>Suggested Sections:</h2>
+            <ul>
+                {% for suggestion in suggestions %}
+                    <li>{{ suggestion.Description }} - {{ suggestion.In_Simple_Words }} - {{ suggestion.Offense }} - {{ suggestion.Punishment }} - {{ suggestion.Cognizable }} - {{ suggestion.Bailable }} - {{ suggestion.Court }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if pdf_output_path %}
+            <div class="pdf-link">
+                {% if is_complaint %}
+                    <p>FIR Report Not Generated. Please use the FIR Registration form.</p>
+                {% else %}
+                    <p>FIR Report Generated Successfully!</p>
+                    <a href="{{ pdf_output_path }}" target="_blank">View FIR Report (PDF)</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

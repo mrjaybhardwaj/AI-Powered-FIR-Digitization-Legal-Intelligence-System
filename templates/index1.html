@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>college website</title>
+    <link rel="stylesheet" href="style.css">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8731dc9275.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index1.html"><img src="images/unnamed.png"></a>
+            <div class="link " id="links">
+                <i class="fa fa-solid fa-xmark " onclick="hide()"></i>
+
+                <ul>
+                    <li><a href="index1.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="course.html">OUR SERVICES</a></li>
+                    <li><a href="">CONTACT US</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-sharp fa-solid fa-bars " onclick="show()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>GET INFORMATION ABOUT IPC'S SECTIONS</h1>
+            <BR></BR>
+    
+                
+                <form  action="/submit" method="post" >
+                    <textarea class="search" name="complaint" placeholder="ENTER CRIME DESCRIPTION.... "  required ></textarea><br>
+                    <input  type="submit" value="Submit">
+                </form>
+                
+        </div>
+
+
+    </section>

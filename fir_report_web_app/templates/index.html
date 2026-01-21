@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 20px;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #007bff;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>FIR Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">FIR Form</h1>
+        <form action="/submit" method="post">
+            <!-- Complainant's Information -->
+            <div class="form-group">
+                <label for="complainant_name">Complainant's Name:</label>
+                <input type="text" class="form-control" name="complainant_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="complainant_address">Complainant's Address:</label>
+                <input type="text" class="form-control" name="complainant_address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="tel" class="form-control" name="phone_number" required>
+            </div>
+
+            <!-- Details of the Incident -->
+            <div class="form-group">
+                <label for="incident_date">Incident Date:</label>
+                <input type="date" class="form-control" name="incident_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="incident_time">Incident Time:</label>
+                <input type="time" class="form-control" name="incident_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="incident_location">Incident Location:</label>
+                <input type="text" class="form-control" name="incident_location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="offense_description">Offense Description:</label>
+                <textarea class="form-control" name="offense_description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="individuals_involved">Individuals Involved:</label>
+                <textarea class="form-control" name="individuals_involved" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="witness_details">Witness Details:</label>
+                <textarea class="form-control" name="witness_details" rows="4" required></textarea>
+            </div>
+
+            <!-- Complaint Narrative -->
+            <div class="form-group">
+                <label for="complaint_narrative">Complaint Narrative:</label>
+                <textarea class="form-control" name="complaint_narrative" rows="6" required></textarea>
+            </div>
+
+            <!-- Sections of the Law -->
+            <div class="form-group">
+                <label for="law_sections">Sections of the Law:</label>
+                <textarea class="form-control" name="law_sections" rows="6" required></textarea>
+            </div>
+
+            <!-- Officer Recording the FIR -->
+            <div class="form-group">
+                <label for="police_officer_name">Officer's Name:</label>
+                <input type="text" class="form-control" name="police_officer_name" required>
+            </div>
+
+            <!-- Registration Number -->
+            <div class="form-group">
+                <label for="registration_number">Registration Number:</label>
+                <input type="text" class="form-control" name="registration_number" required>
+            </div>
+
+            <!-- Signature of Complainant -->
+            <div class="form-group">
+                <label for="complainant_signature">Signature/Thumb Impression:</label>
+                <input type="text" class="form-control" name="complainant_signature" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

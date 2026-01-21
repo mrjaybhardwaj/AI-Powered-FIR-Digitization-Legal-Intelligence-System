@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIR Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>FIR Result</h1>
+        <hr>
+        <h3>Complaint Narrative:</h3>
+        <p>{{ complaint }}</p>
+
+        <h3>Suggested Sections:</h3>
+        {% if suggestions %}
+            <ul>
+                {% for suggestion in suggestions %}
+                    <li>
+                        <strong>Description:</strong> {{ suggestion['Description'] }}<br>
+                        <strong>Offense:</strong> {{ suggestion['Offense'] }}<br>
+                        <strong>Punishment:</strong> {{ suggestion['Punishment'] }}<br>
+                        <strong>Cognizable:</strong> {{ suggestion['Cognizable'] }}<br>
+                        <strong>Bailable:</strong> {{ suggestion['Bailable'] }}<br>
+                        <strong>Court:</strong> {{ suggestion['Court'] }}<br>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No relevant sections found.</p>
+        {% endif %}
+
+        <hr>
+        <h3>Download FIR Report</h3>
+        {% if pdf_file %}
+            <a class="btn btn-primary" href="{{ url_for('download_file', filename=pdf_file) }}" role="button" download>Download FIR Report</a>
+        {% else %}
+            <p>Error generating FIR Report.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

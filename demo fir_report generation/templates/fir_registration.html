@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #007bff;
+        }
+
+        input[type="date"],
+        input[type="time"] {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>FIR Form</title>
+</head>
+<body>
+    <h1>FIR Form</h1>
+    <form action="/generate_fir" method="post">
+
+        <!-- Complainant's Information -->
+        <label for="complaint">Complaint:</label>
+        <textarea name="complaint" rows="4" required></textarea>
+
+        <label for="complainant_name">Complainant's Name:</label>
+        <input type="text" name="complainant_name" required>
+
+        <label for="complainant_address">Complainant's Address:</label>
+        <input type="text" name="complainant_address" required>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" name="phone_number" required>
+
+        <!-- Details of the Incident -->
+        <label for="incident_date">Incident Date:</label>
+        <input type="date" name="incident_date" required>
+
+        <label for="incident_time">Incident Time:</label>
+        <input type="time" name="incident_time" required>
+
+        <label for="incident_location">Incident Location:</label>
+        <input type="text" name="incident_location" required>
+
+        <label for="offense_description">Offense Description:</label>
+        <textarea name="offense_description" rows="4" required></textarea>
+
+        <label for="individuals_involved">Individuals Involved:</label>
+        <textarea name="individuals_involved" rows="4" required></textarea>
+
+        <label for="witness_details">Witness Details:</label>
+        <textarea name="witness_details" rows="4" required></textarea>
+
+        <!-- Complaint Narrative -->
+        <label for="complaint_narrative">Complaint Narrative:</label>
+        <textarea name="complaint_narrative" rows="6" required></textarea>
+
+        <!-- Sections of the Law -->
+        <label for="law_sections">Sections of the Law:</label>
+        <textarea name="law_sections" rows="6" required></textarea>
+
+        <!-- Officer Recording the FIR -->
+        <label for="police_officer_name">Officer's Name:</label>
+        <input type="text" name="police_officer_name" required>
+
+        <!-- Registration Number -->
+        <label for="registration_number">Registration Number:</label>
+        <input type="text" name="registration_number" required>
+
+        <!-- Signature of Complainant -->
+        <label for="complainant_signature">Signature/Thumb Impression:</label>
+        <input type="text" name="complainant_signature" required>
+
+        <!-- Other Relevant Information -->
+        <label for="additional_info">Other Relevant Information:</label>
+        <textarea name="additional_info" rows="6"></textarea>
+
+        <input type="submit" value="Generate FIR">
+    </form>
+</body>
+</html>
